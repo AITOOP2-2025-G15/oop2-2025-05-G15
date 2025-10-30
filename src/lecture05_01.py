@@ -8,7 +8,7 @@ def lecture05_01():
     app = MyVideoCapture()
     app.run()
 
-    # 画像をローカル変数に保存 capture_imgにはqキーを押した際の画像が代入される
+    # 画像をローカル変数に保存capture_imgにはqキーを押した際の画像が代入される
     google_img : cv2.Mat = cv2.imread('images/google.png')
     capture_img : cv2.Mat = app.get_img()
 
