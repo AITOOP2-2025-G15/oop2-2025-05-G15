@@ -26,8 +26,7 @@ def lecture05_01():
     print(google_img.shape)
     print(capture_img.shape)
 
-    cap_x = 0
-    cap_y = 0
+
 
     for y in range(g_hight):
         for x in range(g_width):
@@ -36,18 +35,8 @@ def lecture05_01():
 
         # 白色 (255, 255, 255) かどうかを判定
         if (b, g, r) == (255, 255, 255):  
-            # キャプチャ画像の対応するピクセル値を計算 (タイル状に繰り返す)
-            capture_b, capture_g, capture_r = capture_img[cap_y % c_hight, cap_x % c_width]
-            
-            # google_imgの白色ピクセルをキャプチャ画像の色で置き換え
-            google_img[y, x] = [capture_b, capture_g, capture_r]
+            google_img[y, x] = capture_img[y % c_hight, x % c_width]
         
-        # キャプチャ画像のX座標を更新
-            cap_x += 1
-    
-    # 行の終わりに達したら、キャプチャ画像のX座標をリセットし、Y座標を進める
-        cap_x = 0
-        cap_y += 1
 
 
     # 書き込み処理
